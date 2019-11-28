@@ -6,10 +6,10 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint'
   ],
   globals: {
     Atomics: 'readonly',
@@ -27,7 +27,22 @@ module.exports = {
     'react',
     '@typescript-eslint',
   ],
+  ignorePatterns: ['node_modules', 'webpack.config.base.js', 'webpack.config.dev.js', 'webpack.config.prod.js'],
   rules: {
-    'react/jsx-filename-extension': [1, { 'extensions': ['.tsx', '.jsx']  }],
+    // NOTE: TypeScript で JSX を使用すると警告が出る
+    'react/jsx-filename-extension': ['warn', { 'extensions': ['.tsx', '.jsx']  }],
+    // NOTE: react-router の Link でエラーが発生する
+    'jsx-a11y/anchor-is-valid': ['error', {
+      components: ['Link'],
+      specialLink: ['to'],
+      aspects: ['noHref', 'invalidHref', 'preferButton']
+    }],
+  },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: 'webpack.config.base.js'
+      }
+    },
   },
 };

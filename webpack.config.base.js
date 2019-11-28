@@ -27,10 +27,14 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      '~': path.resolve(__dirname, './src'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      title: 'React Boilerplate',
     }),
   ],
 };
