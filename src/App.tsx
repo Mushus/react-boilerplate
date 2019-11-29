@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Top from '~/pages/Top';
 import About from '~/pages/About';

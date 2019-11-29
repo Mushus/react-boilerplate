@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Counter from '~/containers/Counter';
+import Button from '~/components/Button';
 
 const Top = (): React.ReactElement => {
   const counter = Counter.useContainer();
@@ -9,12 +10,8 @@ const Top = (): React.ReactElement => {
       <h2>Top Page</h2>
       <div>{counter.count}</div>
       <div>
-        <button type="button" onClick={counter.increment}>
-          +
-        </button>
-        <button type="button" onClick={counter.decrement}>
-          -
-        </button>
+        <Button onClick={counter.increment}>+</Button>
+        <Button onClick={counter.decrement}>-</Button>
       </div>
     </>
   );
