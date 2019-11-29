@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PrettierPlugin = require("prettier-webpack-plugin");
 
 module.exports = {
   mode: 'production',
@@ -10,6 +11,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader?modules'],
+      },
       {
         enforce: 'pre',
         test: /\.(jsx?|tsx?)/,
@@ -23,6 +28,14 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
     ],
   },
   resolve: {
@@ -32,6 +45,9 @@ module.exports = {
     },
   },
   plugins: [
+    new PrettierPlugin({
+      extensions: [ ".css", ".graphql", ".json", ".less", ".sass", ".scss", ".yaml" ],
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       title: 'React Boilerplate',

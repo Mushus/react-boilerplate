@@ -14,6 +14,8 @@ yarn dev
 
 * Language
     * TypeScript
+    * SCSS
+    * HTML
 * Toolchain
     * Yarn
     * Webpack
@@ -23,3 +25,4 @@ yarn dev
     * React
     * React-Router
     * Unstated-Next
+    * RESS
