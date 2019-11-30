@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const PrettierPlugin = require("prettier-webpack-plugin");
+const PrettierPlugin = require('prettier-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -30,11 +31,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
@@ -46,11 +43,22 @@ module.exports = {
   },
   plugins: [
     new PrettierPlugin({
-      extensions: [ ".css", ".graphql", ".json", ".less", ".sass", ".scss", ".yaml" ],
+      extensions: [
+        '.css',
+        '.graphql',
+        '.json',
+        '.less',
+        '.sass',
+        '.scss',
+        '.yaml',
+      ],
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       title: 'React Boilerplate',
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'async',
     }),
   ],
 };
