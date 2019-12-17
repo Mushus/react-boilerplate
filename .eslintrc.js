@@ -30,6 +30,14 @@ module.exports = {
   ignorePatterns: ['node_modules', 'webpack.config.base.js', 'webpack.config.dev.js', 'webpack.config.prod.js'],
   rules: {
     // NOTE: TypeScript で JSX を使用すると警告が出る
+    // TODO: 仮対応。これが解消されるのまち
+    // https://github.com/benmosher/eslint-plugin-import/issues/1573
+    'import/extensions': ['warn', 'ignorePackages', {
+      'ts': 'never',
+      'tsx': 'never',
+      'js': 'never',
+      'jsx': 'never'
+    }],
     'react/jsx-filename-extension': ['warn', { 'extensions': ['.tsx', '.jsx']  }],
     // NOTE: react-router の Link でエラーが発生する
     'jsx-a11y/anchor-is-valid': ['error', {
