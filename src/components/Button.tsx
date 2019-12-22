@@ -2,12 +2,21 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 interface Props {
+  /**
+   * content
+   */
   children: React.ReactNode;
+  /**
+   * click event
+   */
   onClick?:
     | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
     | undefined;
 }
 
+/**
+ * simple button
+ */
 const Button = ({ children, onClick }: Props): React.ReactElement => {
   return (
     <StyledButton type="button" onClick={onClick}>
