@@ -12,7 +12,8 @@ module.exports = ({ config }) => {
       },
     ],
   });
-  config.resolve.alias['~'] = path.resolve(__dirname, '../src')
+  config.resolve.alias['~'] = path.resolve(__dirname, '../src');
+  config.resolve.alias['@'] = path.resolve(__dirname, '../');
   config.resolve.extensions.push('.ts', '.tsx');
   return config;
-  };
+};

@@ -13,6 +13,15 @@ yarn dev
 
 # build destinations
 yarn build
+
+# list my components
+yarn storybook
+
+# test
+yarn test
+
+# generate test result
+yarn test:generate-out
 ```
 
 # Stacks
@@ -26,6 +35,8 @@ yarn build
   - Webpack
   - ESlint
   - Prettier
+  - Jest
+  - Storybook
 - Library
   - React
   - React-Router

@@ -9,10 +9,12 @@
     "dev": "webpack-dev-server --hot --inline --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js",
     "storybook": "start-storybook",
-    "test": "jest"
+    "test": "jest",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "devDependencies": {
     "@storybook/addon-info": "^5.2.8",
+    "@storybook/addon-jest": "^5.2.8",
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "@testing-library/react": "^9.4.0",

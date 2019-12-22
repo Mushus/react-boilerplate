@@ -5,7 +5,7 @@ interface Props {
   /**
    * content
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * click event
    */
@@ -28,8 +28,13 @@ const Button = ({ children, onClick }: Props): React.ReactElement => {
 const StyledButton = styled.button`
   background-color: #0080ff;
   padding: 12px 16px;
-  border-radius: 2px;
+  border: none;
+  border-radius: 4px;
   color: #fff;
+  outline: none;
+  &:active {
+    background-color: #3399ff;
+  }
 `;
 
 export default Button;
